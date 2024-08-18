@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Sun Aug 18 15:44:34 2024
+# Process ID: 259181
+# Current directory: /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.runs/synth_1
+# Command line: vivado -log Pong.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Pong.tcl
+# Log file: /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.runs/synth_1/Pong.vds
+# Journal file: /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.runs/synth_1/vivado.jou
+# Running On        :fiak-dell
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 24.04 LTS
+# Processor Detail  :11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+# CPU Frequency     :3716.398 MHz
+# CPU Physical cores:4
+# CPU Logical cores :8
+# Host memory       :16501 MB
+# Swap memory       :536 MB
+# Total Virtual     :17037 MB
+# Available Virtual :9770 MB
+#-----------------------------------------------------------
+source Pong.tcl -notrace

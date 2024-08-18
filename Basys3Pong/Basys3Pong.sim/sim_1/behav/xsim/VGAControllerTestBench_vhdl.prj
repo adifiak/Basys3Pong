@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Basys3Pong.srcs/sources_1/new/Counter.vhd" \
+"../../../../Basys3Pong.srcs/sources_1/new/VGAController.vhd" \
+"../../../../Basys3Pong.srcs/sim_1/new/VGAControllerTestBench.vhd" \
+
+# Do not sort compile order
+nosort
