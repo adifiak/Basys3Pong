@@ -33,20 +33,35 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity Pong is
     Port ( clk : in std_logic;
+           btnC, btnU, btnD, btnL, btnR : in std_logic;
            vgaRed, vgaBlue, vgaGreen : out std_logic_vector(3 downto 0);
            Hsync, Vsync : out std_logic);
 end Pong;
 
 architecture Behavioral of Pong is
-    component ClockDivider is
-        Generic(scale : integer := 4);                
+    component PongGame is
+        Generic (BallSize : unsigned(9 downto 0) := TO_UNSIGNED(5, 10);
+        
+                 PaddleWidth : unsigned(9 downto 0) := TO_UNSIGNED(5, 10);
+                 PaddleHeight : unsigned(9 downto 0) := TO_UNSIGNED(60, 10);
+                 
+                 MapWidth : unsigned(9 downto 0) := TO_UNSIGNED(640, 10);
+                 MapHeight : unsigned(9 downto 0) := TO_UNSIGNED(480, 10));
         Port ( clk : in STD_LOGIC;
                rst : in STD_LOGIC;
-               clk_out : out STD_LOGIC);
+               P1UP : in STD_LOGIC;
+               P1DOWN : in STD_LOGIC;
+               P2UP : in STD_LOGIC;
+               P2DOWN : in STD_LOGIC;
+               X : in STD_LOGIC_VECTOR (9 downto 0);
+               Y : in STD_LOGIC_VECTOR (9 downto 0);
+               R : out STD_LOGIC_VECTOR (3 downto 0);
+               G : out STD_LOGIC_VECTOR (3 downto 0);
+               B : out STD_LOGIC_VECTOR (3 downto 0));
     end component;
 
     component VGAController is            
-        Port (clk, rst, pixelClk : in std_logic;
+        Port (clk, rst : in std_logic;
               x,y : out std_logic_vector(9 downto 0);
               red, blue, green : in std_logic_vector(3 downto 0);
               vgaRed, vgaBlue, vgaGreen : out std_logic_vector(3 downto 0);
@@ -55,32 +70,14 @@ architecture Behavioral of Pong is
     
     signal r,g,b : std_logic_vector(3 downto 0);
     signal x,y : std_logic_vector(9 downto 0);
-    signal vgaClk : std_logic;
 begin
-    cd : ClockDivider
-        port map(
-        clk => clk,
-        rst => '0',
-        clk_out => vgaClk);
-
     vgac : VGAController
-        port map(
-            clk => clk,
-            pixelClk => vgaClk,
-            rst => '0',
-            x => x,
-            y => y,
-            red => r,
-            blue => b,
-            green => g,
-            vgaRed => vgaRed,
-            vgaBlue => vgaBlue,
-            vgaGreen => vgaGreen,
-            Hsync => Hsync,
-            Vsync => Vsync);
+        port map(clk => clk, rst => btnC, x => x, y => y, red => r, blue => b, green => g, vgaRed => vgaRed, vgaBlue => vgaBlue, vgaGreen => vgaGreen, Hsync => Hsync, Vsync => Vsync);
+        
+    pg : PongGame port map( clk => clk, rst => btnC, P1UP => btnL, P1DOWN => btnD, P2UP => btnU, P2DOWN => btnR, X => x, Y => y, R => r, G => g, B => b);
             
-    r <= x"f" when(unsigned(x) < 320) else x"0";
-    g <= x"f" when(unsigned(y) < 240) else x"0";
-    b <= x"f" when(unsigned(y) >= 240 and unsigned(x) >= 320) else x"0";
+    --r <= x"f" when(unsigned(x) < 320) else x"0";
+    --g <= x"f" when(unsigned(y) < 240) else x"0";
+    --b <= x"f" when(unsigned(y) >= 240 and unsigned(x) >= 320) else x"0";
 
 end Behavioral;
