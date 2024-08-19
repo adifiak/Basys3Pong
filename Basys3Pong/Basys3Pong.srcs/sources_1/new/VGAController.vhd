@@ -32,7 +32,9 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity VGAController is
-    Generic(ImageWidth : unsigned(9 downto 0) := to_unsigned(640, 10);
+    Generic (ClkFactor : unsigned(3 downto 0) := to_unsigned(4, 4);
+    
+            ImageWidth : unsigned(9 downto 0) := to_unsigned(640, 10);
             ImageHeight : unsigned(9 downto 0) := to_unsigned(480, 10);
             
             HorizontalFrontPorch : unsigned(9 downto 0) := to_unsigned(16, 10);
@@ -42,7 +44,6 @@ entity VGAController is
             VerticalFrontPorch : unsigned(9 downto 0) := to_unsigned(10, 10);
             VerticalBackPorch : unsigned(9 downto 0) := to_unsigned(33, 10);
             VerticalSync : unsigned(9 downto 0) := to_unsigned(2, 10));
-                
     Port (clk, rst: in std_logic;
           x,y : out std_logic_vector(9 downto 0);
           red, blue, green : in std_logic_vector(3 downto 0);
@@ -60,138 +61,26 @@ architecture Behavioral of VGAController is
                q   : out STD_LOGIC_VECTOR (N-1 downto 0);
                tc  : out std_logic);
     end component;
-
-    type VGAState is (TopPadding, LeftPadding, Image, RightPadding, BottomPadding);
     
-    signal state, nextState : VGAState := TopPadding;
-    signal paddingXtc, paddingYtc, imageXtc, imageYtc : STD_LOGIC;
-    signal paddingXen, paddingYen, imageXen, imageYen : STD_LOGIC;
-    signal paddingXq, paddingYq, paddingXmax, paddingYmax, imageXmax, imageYmax : STD_LOGIC_VECTOR(9 downto 0);
+    signal onImage, vgaClk, Xtc  : std_logic;
+    signal Xq, Yq : STD_LOGIC_VECTOR(9 downto 0);
 begin
-    paddingX : Counter
-        generic map(
-            N => 10)
-        port map(
-            clk => clk,
-            rst => rst,
-            en  => paddingXen,
-            max => paddingXmax,
-            q   => paddingXq,
-            tc  => paddingXtc);
-            
-    paddingY : Counter
-        generic map(
-            N => 10)
-        port map(
-            clk => clk,
-            rst => rst,
-            en  => paddingYen,
-            max => paddingYmax,
-            q   => paddingYq,
-            tc  => paddingYtc);
-            
-    imageX : Counter
-        generic map(
-            N => 10)
-        port map(
-            clk => clk,
-            rst => rst,
-            en  => imageXen,
-            max => imageXmax,
-            q   => x,
-            tc  => imageXtc);
-            
-    imageY : Counter
-        generic map(
-            N => 10)
-        port map(
-            clk => clk,
-            rst => rst,
-            en  => imageYen,
-            max => imageYmax,
-            q   => y,
-            tc  => imageYtc);
+    clkDivider : Counter generic map(N => 4) port map(clk => clk, rst => rst, en => '1', max => std_logic_vector(ClkFactor - 1), q => open, tc => vgaClk);
 
-    StateLogic : process(clk, rst) begin
-        --State Logic
-        if(rst='1') then
-            state <= TopPadding;
-        elsif(rising_edge(clk)) then
-            state <= nextState;
-        end if;        
-    end process;
+    Xpos : Counter generic map(N => 10) port map(clk => clk, rst => rst, en => vgaClk, max => std_logic_vector(ImageWidth + HorizontalFrontPorch + HorizontalBackPorch + HorizontalSync - 1), q => Xq, tc => Xtc);
+            
+    Ypos : Counter generic map(N => 10) port map(clk => clk, rst => rst, en => Xtc, max => std_logic_vector(ImageHeight + VerticalFrontPorch + VerticalBackPorch + VerticalSync - 1), q => Yq, tc => open);
     
-    TerminalCountLogic : process(state) begin
-        case state is
-            when TopPadding     =>
-                paddingXmax <= std_logic_vector(HorizontalSync + HorizontalBackPorch + ImageWidth + HorizontalFrontPorch);
-                paddingYmax <= std_logic_vector(VerticalSync + VerticalBackPorch);
-            when LeftPadding    =>
-                paddingXmax <= std_logic_vector(HorizontalSync + HorizontalBackPorch);
-                paddingYmax <= std_logic_vector(ImageHeight);
-            when Image          =>
-                paddingXmax <= std_logic_vector(ImageWidth);
-                paddingYmax <= std_logic_vector(ImageHeight);
-            when RightPadding   =>
-                paddingXmax <= std_logic_vector(HorizontalFrontPorch);
-                paddingYmax <= std_logic_vector(ImageHeight);
-            when BottomPadding  =>
-                paddingXmax <= std_logic_vector(HorizontalSync + HorizontalBackPorch + ImageWidth + HorizontalFrontPorch);
-                paddingYmax <= std_logic_vector(VerticalFrontPorch);
-        end case;
-    end process;
-    imageXmax <= std_logic_vector(ImageWidth);
-    imageYmax <= std_logic_vector(ImageHeight);
+    onImage <= '1' when((unsigned(Xq) < ImageWidth) and (unsigned(Yq) < ImageHeight)) else '0';
     
-    NextStateLogic : process(state, paddingXtc, paddingYtc,  imageXtc, imageYtc) begin
-        case state is
-            when TopPadding     =>
-                if(paddingYtc = '1') then
-                    nextState <= LeftPadding;
-                else
-                    nextState <= TopPadding;
-                end if;
-            when LeftPadding    =>
-                if(paddingXtc = '1') then
-                    nextState <= Image;
-                else
-                    nextState <= LeftPadding;
-                end if;
-            when Image          =>
-                if(imageXtc = '1') then
-                    nextState <= RightPadding;
-                else
-                    nextState <= Image;
-                end if;
-            when RightPadding   =>
-                if(paddingXtc = '1') then
-                    if(imageYtc = '1') then
-                        nextState <= BottomPadding;
-                    else
-                        nextState <= LeftPadding;
-                    end if;
-                else
-                    nextState <= RightPadding;
-                end if;
-            when BottomPadding  =>
-                if(paddingYtc = '1') then
-                    nextState <= TopPadding;
-                else
-                    nextState <= BottomPadding;
-                end if;
-        end case;
-    end process;
+    x <= Xq when(unsigned(Xq) < ImageWidth)  else std_logic_vector(ImageWidth-1);
+    y <= Yq when(unsigned(Yq) < ImageHeight) else std_logic_vector(ImageHeight-1);
     
-    paddingYen <= '1' when((paddingXtc = '1') and ((state = TopPadding) or (state = BottomPadding))) else '0';
-    paddingXen <= '1' when((state = TopPadding) or (state = BottomPadding) or (state = RightPadding) or (state = LeftPadding)) else '0';
-    imageXen   <= '1' when(state = Image) else '0';
-    imageYen   <= '1' when((paddingXtc = '1') and (state = RightPadding)) else '0';
-    
-    Hsync <= '1' when((unsigned(paddingXq) <= HorizontalSync) and ((state = TopPadding) or (state = BottomPadding) or (state = LeftPadding))) else '0';
-    Vsync <= '1' when((unsigned(paddingYq) <=   VerticalSync) and (state = TopPadding)) else '0';
+    Hsync <= '1' when((unsigned(Xq) >= (ImageWidth + HorizontalFrontPorch - 1)) and (unsigned(Xq) <= (ImageWidth + HorizontalFrontPorch + HorizontalSync - 1))) else '0';
+    Vsync <= '1' when((unsigned(Yq) >= (ImageHeight + VerticalFrontPorch - 1))  and (unsigned(Yq) <= (ImageHeight + VerticalFrontPorch + VerticalSync - 1)))    else '0';
 
-    vgaRed   <= red   when (state=Image) else "0000";
-    vgaBlue  <= blue  when (state=Image) else "0000";
-    vgaGreen <= green when (state=Image) else "0000";
+    vgaRed   <= red   when (onImage = '1') else "0000";
+    vgaBlue  <= blue  when (onImage = '1') else "0000";
+    vgaGreen <= green when (onImage = '1') else "0000";
 
 end Behavioral;

@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Sun Aug 18 15:44:34 2024
-# Process ID: 259181
+# Start of session at: Mon Aug 19 19:44:49 2024
+# Process ID: 407903
 # Current directory: /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.runs/synth_1
 # Command line: vivado -log Pong.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Pong.tcl
 # Log file: /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.runs/synth_1/Pong.vds
@@ -13,16 +13,16 @@
 # Platform          :Ubuntu
 # Operating System  :Ubuntu 24.04 LTS
 # Processor Detail  :11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
-# CPU Frequency     :3716.398 MHz
+# CPU Frequency     :2976.178 MHz
 # CPU Physical cores:4
 # CPU Logical cores :8
 # Host memory       :16501 MB
 # Swap memory       :536 MB
 # Total Virtual     :17037 MB
-# Available Virtual :9770 MB
+# Available Virtual :5559 MB
 #-----------------------------------------------------------
 source Pong.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1381.219 ; gain = 92.223 ; free physical = 3064 ; free virtual = 9009
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1381.219 ; gain = 90.223 ; free physical = 2153 ; free virtual = 5013
 Command: read_checkpoint -auto_incremental -incremental /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/utils_1/imports/synth_1/Pong.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/utils_1/imports/synth_1/Pong.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -36,43 +36,131 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 259216
+INFO: [Synth 8-7075] Helper process launched with PID 407945
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2137.879 ; gain = 413.715 ; free physical = 1970 ; free virtual = 7915
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2137.816 ; gain = 412.715 ; free physical = 1072 ; free virtual = 3916
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'Pong' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Pong.vhd:40]
-INFO: [Synth 8-3491] module 'ClockDivider' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/ClockDivider.vhd:34' bound to instance 'cd' of component 'ClockDivider' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Pong.vhd:60]
-INFO: [Synth 8-638] synthesizing module 'ClockDivider' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/ClockDivider.vhd:42]
-	Parameter scale bound to: 4 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'ClockDivider' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/ClockDivider.vhd:42]
-INFO: [Synth 8-3491] module 'VGAController' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:34' bound to instance 'vgac' of component 'VGAController' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Pong.vhd:66]
-INFO: [Synth 8-638] synthesizing module 'VGAController' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:53]
-	Parameter N bound to: 10 - type: integer 
-INFO: [Synth 8-3491] module 'Counter' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:37' bound to instance 'paddingX' of component 'Counter' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:71]
+WARNING: [Synth 8-2551] possible infinite loop; process does not have a wait statement [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/BackgroundRenderer.vhd:70]
+WARNING: [Synth 8-2551] possible infinite loop; process does not have a wait statement [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/BallRenderer.vhd:61]
+WARNING: [Synth 8-2551] possible infinite loop; process does not have a wait statement [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PaddleRenderer.vhd:83]
+INFO: [Synth 8-638] synthesizing module 'Pong' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Pong.vhd:41]
+INFO: [Synth 8-3491] module 'VGAController' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:34' bound to instance 'vgac' of component 'VGAController' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Pong.vhd:74]
+INFO: [Synth 8-638] synthesizing module 'VGAController' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:54]
+	Parameter N bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'Counter' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:37' bound to instance 'clkDivider' of component 'Counter' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:68]
 INFO: [Synth 8-638] synthesizing module 'Counter' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:47]
-	Parameter N bound to: 10 - type: integer 
+	Parameter N bound to: 4 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'Counter' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:47]
 	Parameter N bound to: 10 - type: integer 
-INFO: [Synth 8-3491] module 'Counter' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:37' bound to instance 'paddingY' of component 'Counter' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:82]
+INFO: [Synth 8-3491] module 'Counter' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:37' bound to instance 'Xpos' of component 'Counter' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:70]
+INFO: [Synth 8-638] synthesizing module 'Counter__parameterized1' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:47]
 	Parameter N bound to: 10 - type: integer 
-INFO: [Synth 8-3491] module 'Counter' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:37' bound to instance 'imageX' of component 'Counter' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:93]
+INFO: [Synth 8-256] done synthesizing module 'Counter__parameterized1' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:47]
 	Parameter N bound to: 10 - type: integer 
-INFO: [Synth 8-3491] module 'Counter' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:37' bound to instance 'imageY' of component 'Counter' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:104]
-INFO: [Synth 8-256] done synthesizing module 'VGAController' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:53]
-INFO: [Synth 8-256] done synthesizing module 'Pong' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Pong.vhd:40]
+INFO: [Synth 8-3491] module 'Counter' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:37' bound to instance 'Ypos' of component 'Counter' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:72]
+INFO: [Synth 8-256] done synthesizing module 'VGAController' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd:54]
+INFO: [Synth 8-3491] module 'PongGame' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongGame.vhd:34' bound to instance 'pg' of component 'PongGame' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Pong.vhd:77]
+INFO: [Synth 8-638] synthesizing module 'PongGame' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongGame.vhd:55]
+	Parameter BallSize bound to: 10'b0000000101 
+	Parameter PaddleWidth bound to: 10'b0000000101 
+	Parameter PaddleHeight bound to: 10'b0000111100 
+	Parameter MapWidth bound to: 10'b1010000000 
+	Parameter MapHeight bound to: 10'b0111100000 
+INFO: [Synth 8-3491] module 'PongInputProcessor' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongInputProcessor.vhd:34' bound to instance 'ip' of component 'PongInputProcessor' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongGame.vhd:120]
+INFO: [Synth 8-638] synthesizing module 'PongInputProcessor' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongInputProcessor.vhd:47]
+INFO: [Synth 8-3491] module 'Debouncer' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Debouncer.vhd:34' bound to instance 'p1u' of component 'Debouncer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongInputProcessor.vhd:64]
+INFO: [Synth 8-638] synthesizing module 'Debouncer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Debouncer.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'Debouncer' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Debouncer.vhd:41]
+INFO: [Synth 8-3491] module 'Debouncer' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Debouncer.vhd:34' bound to instance 'p1d' of component 'Debouncer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongInputProcessor.vhd:70]
+INFO: [Synth 8-3491] module 'Debouncer' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Debouncer.vhd:34' bound to instance 'p2u' of component 'Debouncer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongInputProcessor.vhd:76]
+INFO: [Synth 8-3491] module 'Debouncer' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Debouncer.vhd:34' bound to instance 'p2d' of component 'Debouncer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongInputProcessor.vhd:82]
+INFO: [Synth 8-3491] module 'MovementInputTransformer' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/MovementInputTransformer.vhd:34' bound to instance 'p1mt' of component 'MovementInputTransformer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongInputProcessor.vhd:88]
+INFO: [Synth 8-638] synthesizing module 'MovementInputTransformer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/MovementInputTransformer.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'MovementInputTransformer' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/MovementInputTransformer.vhd:41]
+INFO: [Synth 8-3491] module 'MovementInputTransformer' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/MovementInputTransformer.vhd:34' bound to instance 'p2mt' of component 'MovementInputTransformer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongInputProcessor.vhd:94]
+INFO: [Synth 8-256] done synthesizing module 'PongInputProcessor' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongInputProcessor.vhd:47]
+INFO: [Synth 8-3491] module 'PongControler' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongControler.vhd:34' bound to instance 'pc' of component 'PongControler' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongGame.vhd:122]
+INFO: [Synth 8-638] synthesizing module 'PongControler' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongControler.vhd:58]
+	Parameter BallSize bound to: 10'b0000000101 
+	Parameter PaddleWidth bound to: 10'b0000000101 
+	Parameter PaddleHeight bound to: 10'b0000111100 
+	Parameter MapWidth bound to: 10'b1010000000 
+	Parameter MapHeight bound to: 10'b0111100000 
+	Parameter N bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'Counter' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:37' bound to instance 'clkDivider' of component 'Counter' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongControler.vhd:72]
+INFO: [Synth 8-638] synthesizing module 'Counter__parameterized3' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:47]
+	Parameter N bound to: 20 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Counter__parameterized3' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'PongControler' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongControler.vhd:58]
+INFO: [Synth 8-3491] module 'PongRenderer' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongRenderer.vhd:34' bound to instance 'pr' of component 'PongRenderer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongGame.vhd:124]
+INFO: [Synth 8-638] synthesizing module 'PongRenderer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongRenderer.vhd:57]
+	Parameter BallSize bound to: 10'b0000000101 
+	Parameter PaddleWidth bound to: 10'b0000000101 
+	Parameter PaddleHeight bound to: 10'b0000111100 
+	Parameter MapWidth bound to: 10'b1010000000 
+	Parameter MapHeight bound to: 10'b0111100000 
+INFO: [Synth 8-3491] module 'PaddleRenderer' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PaddleRenderer.vhd:34' bound to instance 'pr' of component 'PaddleRenderer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongRenderer.vhd:107]
+INFO: [Synth 8-638] synthesizing module 'PaddleRenderer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PaddleRenderer.vhd:54]
+	Parameter PaddleWidth bound to: 10'b0000000101 
+	Parameter PaddleHeight bound to: 10'b0000111100 
+	Parameter MapWidth bound to: 10'b1010000000 
+	Parameter MapHeight bound to: 10'b0111100000 
+INFO: [Synth 8-256] done synthesizing module 'PaddleRenderer' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PaddleRenderer.vhd:54]
+INFO: [Synth 8-3491] module 'BallRenderer' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/BallRenderer.vhd:34' bound to instance 'br' of component 'BallRenderer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongRenderer.vhd:109]
+INFO: [Synth 8-638] synthesizing module 'BallRenderer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/BallRenderer.vhd:48]
+	Parameter BallSize bound to: 10'b0000000101 
+INFO: [Synth 8-256] done synthesizing module 'BallRenderer' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/BallRenderer.vhd:48]
+INFO: [Synth 8-3491] module 'BackgroundRenderer' declared at '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/BackgroundRenderer.vhd:34' bound to instance 'bgr' of component 'BackgroundRenderer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongRenderer.vhd:111]
+INFO: [Synth 8-638] synthesizing module 'BackgroundRenderer' [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/BackgroundRenderer.vhd:47]
+	Parameter MapWidth bound to: 10'b1010000000 
+	Parameter MapHeight bound to: 10'b0111100000 
+INFO: [Synth 8-256] done synthesizing module 'BackgroundRenderer' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/BackgroundRenderer.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'PongRenderer' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongRenderer.vhd:57]
+INFO: [Synth 8-256] done synthesizing module 'PongGame' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongGame.vhd:55]
+INFO: [Synth 8-256] done synthesizing module 'Pong' (0#1) [/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Pong.vhd:41]
+WARNING: [Synth 8-7129] Port rPassthrough[3] in module BackgroundRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rPassthrough[2] in module BackgroundRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rPassthrough[1] in module BackgroundRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rPassthrough[0] in module BackgroundRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gPassthrough[3] in module BackgroundRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gPassthrough[2] in module BackgroundRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gPassthrough[1] in module BackgroundRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gPassthrough[0] in module BackgroundRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bPassthrough[3] in module BackgroundRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bPassthrough[2] in module BackgroundRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bPassthrough[1] in module BackgroundRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bPassthrough[0] in module BackgroundRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gPassthrough[3] in module BallRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gPassthrough[2] in module BallRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gPassthrough[1] in module BallRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gPassthrough[0] in module BallRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bPassthrough[3] in module BallRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bPassthrough[2] in module BallRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bPassthrough[1] in module BallRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bPassthrough[0] in module BallRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port p1en in module PaddleRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port p2en in module PaddleRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port p1Score[3] in module PongRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port p1Score[2] in module PongRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port p1Score[1] in module PongRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port p1Score[0] in module PongRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port p2Score[3] in module PongRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port p2Score[2] in module PongRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port p2Score[1] in module PongRenderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port p2Score[0] in module PongRenderer is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2213.848 ; gain = 489.684 ; free physical = 1877 ; free virtual = 7820
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2215.785 ; gain = 490.684 ; free physical = 981 ; free virtual = 3824
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2228.691 ; gain = 504.527 ; free physical = 1877 ; free virtual = 7820
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2230.629 ; gain = 505.527 ; free physical = 980 ; free virtual = 3823
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2228.691 ; gain = 504.527 ; free physical = 1877 ; free virtual = 7820
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2230.629 ; gain = 505.527 ; free physical = 980 ; free virtual = 3823
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2228.691 ; gain = 0.000 ; free physical = 1877 ; free virtual = 7820
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2230.629 ; gain = 0.000 ; free physical = 980 ; free virtual = 3823
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -83,52 +171,51 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/Pong_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2371.441 ; gain = 0.000 ; free physical = 1874 ; free virtual = 7806
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2379.379 ; gain = 0.000 ; free physical = 964 ; free virtual = 3807
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2371.441 ; gain = 0.000 ; free physical = 1874 ; free virtual = 7806
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2379.379 ; gain = 0.000 ; free physical = 964 ; free virtual = 3807
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2371.441 ; gain = 647.277 ; free physical = 1876 ; free virtual = 7809
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2379.379 ; gain = 654.277 ; free physical = 938 ; free virtual = 3789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1875 ; free virtual = 7809
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 938 ; free virtual = 3789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1875 ; free virtual = 7809
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 938 ; free virtual = 3789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1873 ; free virtual = 7807
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 916 ; free virtual = 3779
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   32 Bit       Adders := 1     
-	   2 Input   10 Bit       Adders := 4     
+	   3 Input   11 Bit       Adders := 4     
+	   2 Input   10 Bit       Adders := 12    
+	   2 Input    9 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
 +---Registers : 
-	               32 Bit    Registers := 1     
 	               10 Bit    Registers := 4     
-	                3 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
 +---Muxes : 
-	   2 Input   10 Bit        Muxes := 4     
-	   6 Input   10 Bit        Muxes := 2     
-	   2 Input    4 Bit        Muxes := 3     
-	   3 Input    3 Bit        Muxes := 1     
-	   2 Input    3 Bit        Muxes := 1     
-	   2 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 6     
+	   2 Input    4 Bit        Muxes := 18    
+	   2 Input    1 Bit        Muxes := 14    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -146,25 +233,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1845 ; free virtual = 7783
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 861 ; free virtual = 3766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1842 ; free virtual = 7781
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 830 ; free virtual = 3763
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1842 ; free virtual = 7781
+Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 838 ; free virtual = 3737
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1845 ; free virtual = 7783
+Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 838 ; free virtual = 3736
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -182,37 +269,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1829 ; free virtual = 7781
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 902 ; free virtual = 3770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1829 ; free virtual = 7781
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 902 ; free virtual = 3770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1829 ; free virtual = 7781
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 902 ; free virtual = 3770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1829 ; free virtual = 7781
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 902 ; free virtual = 3770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1829 ; free virtual = 7781
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 902 ; free virtual = 3770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1829 ; free virtual = 7781
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 902 ; free virtual = 3770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -228,42 +315,45 @@ Report Cell Usage:
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |BUFG   |     2|
-|2     |CARRY4 |    10|
-|3     |LUT1   |     2|
-|4     |LUT2   |     5|
-|5     |LUT3   |    14|
-|6     |LUT4   |    22|
-|7     |LUT5   |    22|
-|8     |LUT6   |    28|
-|9     |FDRE   |    76|
-|10    |IBUF   |     1|
-|11    |OBUF   |    14|
+|1     |BUFG   |     1|
+|2     |CARRY4 |    63|
+|3     |LUT1   |     6|
+|4     |LUT2   |   109|
+|5     |LUT3   |    18|
+|6     |LUT4   |    27|
+|7     |LUT5   |   171|
+|8     |LUT6   |    72|
+|9     |FDCE   |   188|
+|10    |FDPE   |    12|
+|11    |LDC    |     4|
+|12    |IBUF   |     6|
+|13    |OBUF   |    14|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2379.445 ; gain = 655.281 ; free physical = 1829 ; free virtual = 7781
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2387.383 ; gain = 662.281 ; free physical = 902 ; free virtual = 3770
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2379.445 ; gain = 512.531 ; free physical = 1829 ; free virtual = 7781
-Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2379.453 ; gain = 655.281 ; free physical = 1829 ; free virtual = 7781
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 2387.383 ; gain = 513.531 ; free physical = 907 ; free virtual = 3773
+Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2387.391 ; gain = 662.281 ; free physical = 907 ; free virtual = 3773
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2379.453 ; gain = 0.000 ; free physical = 1829 ; free virtual = 7781
-INFO: [Netlist 29-17] Analyzing 10 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2387.391 ; gain = 0.000 ; free physical = 1256 ; free virtual = 4121
+INFO: [Netlist 29-17] Analyzing 67 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2435.473 ; gain = 0.000 ; free physical = 2170 ; free virtual = 8120
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2443.410 ; gain = 0.000 ; free physical = 1264 ; free virtual = 4130
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 4 instances were transformed.
+  LDC => LDCE: 4 instances
 
-Synth Design complete | Checksum: ed0960c0
+Synth Design complete | Checksum: f4f5dbe4
 INFO: [Common 17-83] Releasing license: Synthesis
-36 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+68 Infos, 34 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:20 . Memory (MB): peak = 2435.473 ; gain = 1048.285 ; free physical = 2170 ; free virtual = 8121
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1951.465; main = 1562.929; forked = 439.180
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3484.785; main = 2435.477; forked = 1105.336
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2459.484 ; gain = 0.000 ; free physical = 2171 ; free virtual = 8121
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:24 . Memory (MB): peak = 2443.410 ; gain = 1057.223 ; free physical = 1264 ; free virtual = 4129
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1894.021; main = 1505.519; forked = 414.777
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3492.723; main = 2443.414; forked = 1105.336
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2467.422 ; gain = 0.000 ; free physical = 1272 ; free virtual = 4137
 INFO: [Common 17-1381] The checkpoint '/home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.runs/synth_1/Pong.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file Pong_utilization_synth.rpt -pb Pong_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Aug 18 15:45:02 2024...
+INFO: [Common 17-206] Exiting Vivado at Mon Aug 19 19:45:20 2024...

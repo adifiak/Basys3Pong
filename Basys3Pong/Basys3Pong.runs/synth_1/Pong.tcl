@@ -56,8 +56,12 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param checkpoint.writeSynthRtdsInDcp 1
 set_param chipscope.maxJobs 2
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -74,8 +78,16 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/ClockDivider.vhd
+  /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/BackgroundRenderer.vhd
+  /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/BallRenderer.vhd
   /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Counter.vhd
+  /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Debouncer.vhd
+  /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/MovementInputTransformer.vhd
+  /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PaddleRenderer.vhd
+  /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongControler.vhd
+  /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongGame.vhd
+  /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongInputProcessor.vhd
+  /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/PongRenderer.vhd
   /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/VGAController.vhd
   /home/fiak/Documents/GitHub/Basys3Pong/Basys3Pong/Basys3Pong.srcs/sources_1/new/Pong.vhd
 }
