@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Sun Aug 18 15:45:45 2024
+| Date         : Mon Aug 19 19:47:37 2024
 | Host         : fiak-dell running 64-bit Ubuntu 24.04 LTS
 | Command      : report_drc -file Pong_drc_routed.rpt -pb Pong_drc_routed.pb -rpx Pong_drc_routed.rpx
 | Design       : Pong
@@ -24,12 +24,33 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 0
-+------+----------+-------------+------------+
-| Rule | Severity | Description | Violations |
-+------+----------+-------------+------------+
-+------+----------+-------------+------------+
+             Violations found: 4
++----------+----------+-------------------+------------+
+| Rule     | Severity | Description       | Violations |
++----------+----------+-------------------+------------+
+| PDRC-153 | Warning  | Gated clock check | 4          |
++----------+----------+-------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+PDRC-153#1 Warning
+Gated clock check  
+Net pg/ip/p1d/outState_reg_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin pg/ip/p1d/outState_reg_LDC_i_1__0/O, cell pg/ip/p1d/outState_reg_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net pg/ip/p1u/outState_reg_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin pg/ip/p1u/outState_reg_LDC_i_1/O, cell pg/ip/p1u/outState_reg_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
+Gated clock check  
+Net pg/ip/p2d/outState_reg_LDC_i_1__2_n_0 is a gated clock net sourced by a combinational pin pg/ip/p2d/outState_reg_LDC_i_1__2/O, cell pg/ip/p2d/outState_reg_LDC_i_1__2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net pg/ip/p2u/outState_reg_LDC_i_1__1_n_0 is a gated clock net sourced by a combinational pin pg/ip/p2u/outState_reg_LDC_i_1__1/O, cell pg/ip/p2u/outState_reg_LDC_i_1__1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
 
