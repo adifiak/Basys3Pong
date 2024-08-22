@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Mon Aug 19 19:47:26 2024
+| Date         : Tue Aug 20 19:56:10 2024
 | Host         : fiak-dell running 64-bit Ubuntu 24.04 LTS
 | Command      : report_control_sets -verbose -file Pong_control_sets_placed.rpt
 | Design       : Pong
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    21 |
-|    Minimum number of control sets                        |    21 |
+| Total control sets                                       |    26 |
+|    Minimum number of control sets                        |    26 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   108 |
+| Unused register locations in slices containing registers |   132 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,12 +39,12 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    21 |
+| Total control sets |    26 |
 | >= 0 to < 4        |    12 |
-| >= 4 to < 6        |     0 |
+| >= 4 to < 6        |     4 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     0 |
-| >= 10 to < 12      |     4 |
+| >= 10 to < 12      |     5 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
 | >= 16              |     5 |
@@ -58,42 +58,47 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               0 |            0 |
-| No           | No                    | Yes                    |              24 |            6 |
-| No           | Yes                   | No                     |               4 |            4 |
+| No           | No                    | No                     |              11 |            6 |
+| No           | No                    | Yes                    |              28 |            8 |
+| No           | Yes                   | No                     |               8 |            7 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |             176 |           59 |
-| Yes          | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |             156 |           49 |
+| Yes          | Yes                   | No                     |              33 |           17 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------------------------+-----------------------------------+---------------------------------------+------------------+----------------+--------------+
-|              Clock Signal              |           Enable Signal           |            Set/Reset Signal           | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------------------------------+-----------------------------------+---------------------------------------+------------------+----------------+--------------+
-|  clk_IBUF_BUFG                         | pg/ip/p2u/outState                | pg/ip/p2u/outState_reg_LDC_i_2__1_n_0 |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG                         | pg/ip/p2d/outState                | pg/ip/p2d/outState_reg_LDC_i_2__2_n_0 |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG                         | pg/ip/p2d/outState                | pg/ip/p2d/outState_reg_LDC_i_1__2_n_0 |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG                         | pg/ip/p1d/outState                | pg/ip/p1d/outState_reg_LDC_i_2__0_n_0 |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG                         | pg/ip/p1d/outState                | pg/ip/p1d/outState_reg_LDC_i_1__0_n_0 |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG                         | pg/ip/p1u/outState                | pg/ip/p1u/outState_reg_LDC_i_2_n_0    |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG                         | pg/ip/p1u/outState                | pg/ip/p1u/outState_reg_LDC_i_1_n_0    |                1 |              1 |         1.00 |
-|  pg/ip/p2d/outState_reg_LDC_i_1__2_n_0 |                                   | pg/ip/p2d/outState_reg_LDC_i_2__2_n_0 |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG                         | pg/ip/p2u/outState                | pg/ip/p2u/outState_reg_LDC_i_1__1_n_0 |                1 |              1 |         1.00 |
-|  pg/ip/p1d/outState_reg_LDC_i_1__0_n_0 |                                   | pg/ip/p1d/outState_reg_LDC_i_2__0_n_0 |                1 |              1 |         1.00 |
-|  pg/ip/p1u/outState_reg_LDC_i_1_n_0    |                                   | pg/ip/p1u/outState_reg_LDC_i_2_n_0    |                1 |              1 |         1.00 |
-|  pg/ip/p2u/outState_reg_LDC_i_1__1_n_0 |                                   | pg/ip/p2u/outState_reg_LDC_i_2__1_n_0 |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG                         | pg/pc/clkDivider/p2YPos_reg[9][0] | btnC_IBUF                             |                4 |             10 |         2.50 |
-|  clk_IBUF_BUFG                         | vgac/clkDivider/E[0]              | btnC_IBUF                             |                4 |             10 |         2.50 |
-|  clk_IBUF_BUFG                         | vgac/clkDivider/cnt_reg[0]_0[0]   | btnC_IBUF                             |                5 |             10 |         2.00 |
-|  clk_IBUF_BUFG                         | pg/pc/clkDivider/E[0]             | btnC_IBUF                             |                6 |             10 |         1.67 |
-|  clk_IBUF_BUFG                         |                                   | btnC_IBUF                             |                6 |             24 |         4.00 |
-|  clk_IBUF_BUFG                         | pg/ip/p2u/cnt[0]_i_1__1_n_0       | btnC_IBUF                             |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG                         | pg/ip/p1d/cnt[0]_i_1__0_n_0       | btnC_IBUF                             |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG                         | pg/ip/p2d/cnt[0]_i_1__2_n_0       | btnC_IBUF                             |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG                         | pg/ip/p1u/cnt[0]_i_1_n_0          | btnC_IBUF                             |                8 |             32 |         4.00 |
-+----------------------------------------+-----------------------------------+---------------------------------------+------------------+----------------+--------------+
++----------------------------------------+-------------------------------+---------------------------------------+------------------+----------------+--------------+
+|              Clock Signal              |         Enable Signal         |            Set/Reset Signal           | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------------------------+-------------------------------+---------------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG                         | pg/ip/p2u/outState            | pg/ip/p2u/outState_reg_LDC_i_1__1_n_0 |                1 |              1 |         1.00 |
+|  pg/ip/p1u/outState_reg_LDC_i_1_n_0    |                               | pg/ip/p1u/outState_reg_LDC_i_2_n_0    |                1 |              1 |         1.00 |
+|  pg/ip/p2d/outState_reg_LDC_i_1__2_n_0 |                               | pg/ip/p2d/outState_reg_LDC_i_2__2_n_0 |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG                         | pg/ip/p1u/outState            | pg/ip/p1u/outState_reg_LDC_i_2_n_0    |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG                         | pg/ip/p1u/outState            | pg/ip/p1u/outState_reg_LDC_i_1_n_0    |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG                         | pg/ip/p2d/outState            | pg/ip/p2d/outState_reg_LDC_i_2__2_n_0 |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG                         | pg/ip/p2d/outState            | pg/ip/p2d/outState_reg_LDC_i_1__2_n_0 |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG                         | pg/ip/p2u/outState            | pg/ip/p2u/outState_reg_LDC_i_2__1_n_0 |                1 |              1 |         1.00 |
+|  pg/ip/p2u/outState_reg_LDC_i_1__1_n_0 |                               | pg/ip/p2u/outState_reg_LDC_i_2__1_n_0 |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG                         | pg/ip/p1d/outState            | pg/ip/p1d/outState_reg_LDC_i_2__0_n_0 |                1 |              1 |         1.00 |
+|  pg/ip/p1d/outState_reg_LDC_i_1__0_n_0 |                               | pg/ip/p1d/outState_reg_LDC_i_2__0_n_0 |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG                         | pg/ip/p1d/outState            | pg/ip/p1d/outState_reg_LDC_i_1__0_n_0 |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG                         |                               | pg/pc/p1Moved0                        |                3 |              4 |         1.33 |
+|  clk_IBUF_BUFG                         | pg/pc/clkDivider/E[0]         | pg/pc/clkDivider/SR[0]                |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG                         | pg/pc/clkDivider/E[1]         | pg/pc/p1Moved0                        |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG                         | pg/pc/clkDivider/p_1_in[0]    | pg/pc/p1Moved0                        |                3 |              5 |         1.67 |
+|  clk_IBUF_BUFG                         | pg/ip/p1d/E[0]                | pg/pc/p1Moved0                        |                5 |             10 |         2.00 |
+|  clk_IBUF_BUFG                         | vgac/Xpos/cnt_reg[9]_1[0]     | btnC_IBUF                             |                5 |             10 |         2.00 |
+|  clk_IBUF_BUFG                         | vgac/clkDivider/E[0]          | btnC_IBUF                             |                4 |             10 |         2.50 |
+|  clk_IBUF_BUFG                         | pg/ip/p2d/outState_reg_C_0[0] | pg/pc/p1Moved0                        |                5 |             10 |         2.00 |
+|  clk_IBUF_BUFG                         |                               |                                       |                6 |             11 |         1.83 |
+|  clk_IBUF_BUFG                         |                               | btnC_IBUF                             |                8 |             28 |         3.50 |
+|  clk_IBUF_BUFG                         | pg/ip/p1u/cnt[0]_i_1_n_0      | btnC_IBUF                             |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG                         | pg/ip/p1d/cnt[0]_i_1__0_n_0   | btnC_IBUF                             |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG                         | pg/ip/p2d/cnt[0]_i_1__2_n_0   | btnC_IBUF                             |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG                         | pg/ip/p2u/cnt[0]_i_1__1_n_0   | btnC_IBUF                             |                8 |             32 |         4.00 |
++----------------------------------------+-------------------------------+---------------------------------------+------------------+----------------+--------------+
 
 
