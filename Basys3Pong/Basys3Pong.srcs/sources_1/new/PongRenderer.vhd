@@ -34,7 +34,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity PongRenderer is
     Generic (BallSize : unsigned(9 downto 0) := TO_UNSIGNED(5, 10);
     
-             PaddleWidth : unsigned(9 downto 0) := TO_UNSIGNED(5, 10);
+             PaddleWidth : unsigned(9 downto 0) := TO_UNSIGNED(10, 10);
              PaddleHeight : unsigned(9 downto 0) := TO_UNSIGNED(60, 10);
              
              MapWidth : unsigned(9 downto 0) := TO_UNSIGNED(640, 10);

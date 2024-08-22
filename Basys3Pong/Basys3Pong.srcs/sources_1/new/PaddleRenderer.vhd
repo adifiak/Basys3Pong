@@ -57,9 +57,15 @@ begin
     process begin
         if(unsigned(x) >= PaddleWidth and (unsigned(x) < 2*PaddleWidth)) then --Left paddle
             if(unsigned(y) >= (unsigned(p1y) - PaddleHeight/2) and unsigned(y) < (unsigned(p1y) + PaddleHeight/2)) then
-                r <= x"f";
-                g <= x"f";
-                b <= x"f";
+                if(p1en = '1') then
+                    r <= x"f";
+                    g <= x"f";
+                    b <= x"f";
+                else
+                    r <= x"4";
+                    g <= x"4";
+                    b <= x"4";
+                end if;
             else
                 r <= rPassthrough;
                 g <= gPassthrough;
@@ -67,9 +73,15 @@ begin
             end if;
         elsif(unsigned(x) >= (MapWidth - 2*PaddleWidth) and unsigned(x) < (MapWidth - PaddleWidth)) then -- Right paddle
             if(unsigned(y) >= (unsigned(p2y) - PaddleHeight/2) and unsigned(y) < (unsigned(p2y) + PaddleHeight/2)) then
-                r <= x"f";
-                g <= x"f";
-                b <= x"f";
+                if(p2en = '1') then
+                    r <= x"f";
+                    g <= x"f";
+                    b <= x"f";
+                else
+                    r <= x"4";
+                    g <= x"4";
+                    b <= x"4";
+                end if;
             else
                 r <= rPassthrough;
                 g <= gPassthrough;
