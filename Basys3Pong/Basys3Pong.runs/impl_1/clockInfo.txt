@@ -1,6 +1,6 @@
 -------------------------------------
 | Tool Version : Vivado v.2024.1
-| Date         : Mon Aug 19 19:47:25 2024
+| Date         : Tue Aug 20 19:56:07 2024
 | Host         : fiak-dell
 | Design       : design_1
 | Device       : xc7a35t-cpg236-1--
